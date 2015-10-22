@@ -19,6 +19,7 @@
 @import "font-awesome-sprockets"
 @import "font-awesome"
 @import "variables"
+@import "welcome"
 
 body
   background-color: $light-grey
@@ -26,67 +27,65 @@ body
   font-family: $lora, helvetica, sans-serif
   font-size: 10px
 
-  a
-    color: $raspberry
-    text-decoration: none
-    -webkit-transition: color 0.2s ease
-    -moz-transition: color 0.2s ease
-    transition: color 0.2s ease
+a
+  color: $raspberry
+  text-decoration: none
+  -webkit-transition: color 0.2s ease
+  -moz-transition: color 0.2s ease
+  transition: color 0.2s ease
 
-  a:focus,
-  a:hover
+  &:focus,
+  &:hover
     color: $green
 
-  header
-    width: 100%
-    padding: 10px 20px
+header
+  width: 100%
+  padding: 10px 20px
 
-    i
-      margin-right: 10px
-      font-size: 7em
+i
+  margin-right: 10px
+  font-size: 7em
 
-      a
-        color: $dark-green
+  a
+    color: $dark-green
 
-    h1
-      display: inline-block
-      font-size: 6em
+h1
+  display: inline-block
+  font-size: 6em
 
-    nav
-      width: 100%
-      text-align: right
+nav
+  width: 100%
+  text-align: right
 
-      li
-        margin: 12px 0 8px 15px
-        display: inline-block
+  li
+    margin: 12px 0 8px 15px
+    display: inline-block
 
-        a
-          font-size: 2.1em
-          font-weight: 700
+    a
+      font-size: 2.1em
+      font-weight: 700
 
-  @import "welcome"
+footer
+  width: 100%
+  padding: 10px 20px
+  text-align: center
 
-  footer
-    width: 100%
-    padding: 10px 20px
-    text-align: center
+#social-links
+  margin-bottom: 10px
 
-    #social-links
-      margin-bottom: 10px
+  i
+    font-size: 6em
+    margin: 0 10px
 
-      i
-        font-size: 6em
-        margin: 0 10px
+    a
+      color: $dark-green
 
-        a
-          color: $dark-green
+      &:focus,
+      &:hover
+        color: $raspberry
 
-        a:focus,
-        a:hover
-          color: $raspberry
+small
+  font-size: 1.5em
 
-    small
-      font-size: 1.5em
-
-      a
-        font-weight: 700
+  a
+    font-weight: 700
