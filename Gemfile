@@ -19,7 +19,7 @@ gem 'react-rails', '~> 1.3.0'
 
 # Authentication and security
 gem 'devise'
-gem 'figaro'
+gem 'figaro', '1.0'
 
 # Miscelaneous
 gem 'turbolinks'
