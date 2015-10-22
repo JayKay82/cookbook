@@ -1,10 +1,37 @@
 doctype html
 html
+
   head
     title
       | Recipe
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   body
+    - if flash[:notice]
+      .flash-message.notice
+        = flash[:notice]
+    - elsif flash[:alert]
+      .flash-message.alert
+        = flash[:alert]
+    - elsif flash[:error]
+      .flash-message.error
+        = flash[:error]
+
+    header
+      h1 Recipe
+      nav
+        li= link_to 'Sign in', '#'
+        li= link_to 'Sign up', '#'
+
     = yield
+
+    footer
+      #social-links
+        i= link_to '', '#', class: 'fa fa-twitter-square fa-2x'
+        i= link_to '', '#', class: 'fa fa-instagram fa-2x'
+        i= link_to '', '#', class: 'fa fa-facebook-square fa-2x'
+      small
+        | Created by
+        = link_to 'Jan Kroezen', '#'
