@@ -20,6 +20,7 @@ html
         = flash[:error]
 
     header
+      i= link_to '', root_path, class: 'fa fa-leaf'
       h1 Recipe
       nav
         li= link_to 'Sign in', '#'
@@ -29,9 +30,9 @@ html
 
     footer
       #social-links
-        i= link_to '', '#', class: 'fa fa-twitter-square fa-2x'
-        i= link_to '', '#', class: 'fa fa-instagram fa-2x'
-        i= link_to '', '#', class: 'fa fa-facebook-square fa-2x'
+        i= link_to '', '#', class: 'fa fa-twitter-square'
+        i= link_to '', '#', class: 'fa fa-instagram'
+        i= link_to '', '#', class: 'fa fa-facebook-square'
       small
         | Created by
-        = link_to 'Jan Kroezen', '#'
+        = link_to ' Jan Kroezen', '#'
