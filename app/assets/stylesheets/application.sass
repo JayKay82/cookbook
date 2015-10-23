@@ -28,7 +28,7 @@ body
   font-size: 10px
 
 a
-  color: $raspberry
+  color: $dark-raspberry
   text-decoration: none
   -webkit-transition: color 0.2s ease
   -moz-transition: color 0.2s ease
@@ -36,8 +36,9 @@ a
 
   &:focus,
   &:hover
-    color: $green
+    color: $light-green
 
+// Application Header
 header
   width: 100%
   padding: 10px 20px
@@ -64,7 +65,61 @@ nav
     a
       font-size: 2.1em
       font-weight: 700
+// End of Header
 
+
+// Application Forms
+form
+  width: 90%
+  margin: 0 auto
+  // overflow: auto
+  font-size: 1.6em
+  vertical-align: bottom
+
+  a
+    float: left
+    font-size: 1.2em
+    font-weight: 700
+    margin-top: 25px
+
+.actions
+  height: 44px
+
+input[type='text'],
+input[type='password'],
+input[type='email']
+  box-sizing: border-box
+  width: 100%
+  height: 3em
+  border: 1px solid $light-grey
+  padding: 10px
+  margin-bottom: 15px
+  -webkit-transition: box-shadow 0.2s
+  -moz-transition: box-shadow 0.2s
+  transition: box-shadow 0.2s
+
+  &:focus
+    outline: none
+    box-shadow: 0 0 5px 1px $brown
+
+input[type='submit']
+  float: right
+  padding: 10px 35px
+  box-shadow: none
+  border-radius: 0
+  border: none
+  font-size: 1.2em
+  font-weight: 700
+  color: white
+  background-color: $dark-raspberry
+
+  &:focus,
+  &:hover
+    background-color: $light-raspberry
+// End of Form
+
+
+// Application Footer
 footer
   width: 100%
   padding: 10px 20px
@@ -82,10 +137,11 @@ footer
 
       &:focus,
       &:hover
-        color: $raspberry
+        color: $dark-raspberry
 
 small
   font-size: 1.5em
 
   a
     font-weight: 700
+// End of Footer
