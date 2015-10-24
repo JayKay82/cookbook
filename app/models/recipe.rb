@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
   belongs_to :user
+  has_many :ingredients
 
   validates :title, presence: true, length: { in: 2..20 }
   validates :description, presence: true, length: { maximum: 140 }
