@@ -24,6 +24,7 @@ gem 'figaro', '1.0'
 # Miscelaneous
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'rename'
 
 group :development, :test do
   # Development and test database
