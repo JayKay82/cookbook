@@ -1,0 +1,64 @@
+@import "variables"
+
+.recipe
+  width: 90%
+  margin: 0 auto 40px
+  overflow: auto
+
+  h3
+    a
+      color: $dark-orange
+      font-size: 2em
+
+      &:focus,
+      &:hover
+        color: $light-orange
+
+  p
+    font-size: 1.4em
+    line-height: 1.5em
+    margin-top: 10px
+
+  small
+    float: right
+    margin-top: 15px
+    font-size: 1.2em
+
+.full-recipe
+  h2
+    margin-bottom: 15px
+
+  h3
+    margin-bottom: 10px
+    color: $dark-orange
+    font-size: 1.25em
+
+  time
+    font-size: 1.2em
+    text-align: center
+
+  #description
+    margin: 30px 5%
+    font-size: 1.8em
+
+  #ingredients
+    margin: 30px 5%
+    font-size: 1.6em
+    table
+      width: 100%
+      font-size: 0.9em
+    tr
+      border-bottom: 1px solid $dark-grey
+    tr:last-child
+      border-bottom: none
+    th
+      color: $brown
+      font-style: italic
+    th, td
+      text-align: left
+      padding: 8px
+
+  #steps
+    margin: 0 5%
+    font-size: 1.6em
+    line-height: 1.4em

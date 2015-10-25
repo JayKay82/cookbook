@@ -5,7 +5,7 @@ FactoryGirl.define do
     cooking_steps "Heat oil in pan. Add some onions."
     prep_time 15
     cooking_time 100
-    user user
+    user
   end
 
 end

@@ -5,4 +5,8 @@ FactoryGirl.define do
     password 'secretcode'
     password_confirmation 'secretcode'
   end
+
+  trait :confirmed do
+    confirmed_at { Time.now }
+  end
 end

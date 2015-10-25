@@ -7,4 +7,7 @@ class Recipe < ActiveRecord::Base
   validates :cooking_steps, presence: true
   validates :prep_time, presence: true, numericality: { only_integer: true }
   validates :cooking_time, presence: true, numericality: { only_integer: true }
+
+  scope :recent, ->{ Recipe.all.order('created_at').limit(5).reverse }
+
 end

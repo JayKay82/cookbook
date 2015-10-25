@@ -25,6 +25,7 @@ gem 'figaro', '1.0'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rename'
+gem 'faker'
 
 group :development, :test do
   # Development and test database

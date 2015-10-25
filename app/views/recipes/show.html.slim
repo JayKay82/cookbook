@@ -1,0 +1,22 @@
+section
+  .full-recipe
+    h2= recipe.title
+
+    time
+      p Prep: #{humanize(recipe.prep_time)} - Cooking: #{humanize(recipe.cooking_time)}
+
+    #description
+      p= recipe.description
+
+    #ingredients
+      h3 Ingredients
+      table
+        tr
+          th Qty
+          th Name
+          th Prep
+        = render ingredients 
+
+    #steps
+      h3 Cooking Steps
+      p= recipe.cooking_steps
