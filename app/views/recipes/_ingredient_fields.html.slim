@@ -1,0 +1,6 @@
+fieldset
+  = f.text_field :quantity, placeholder: 'Qty'
+  = f.text_field :name, placeholder: 'Name'
+  = f.text_field :prep_method, placeholder: 'Preparation Method'
+  = f.hidden_field :_destroy
+  = link_to 'remove', '#', class: 'remove-fields'

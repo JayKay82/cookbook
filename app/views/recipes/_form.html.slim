@@ -1,0 +1,31 @@
+/ = form_for @recipe_form, url: recipes_path, method: :post do |f|
+= form_for @recipe do |f|
+  .field
+    = f.text_field :title, placeholder: 'Title'
+
+  .field
+    = f.text_area :description, placeholder: 'Description'
+
+  = f.fields_for :ingredients do |builder|
+    = render 'ingredient_fields', f: builder
+  = link_to_add_fields 'Add ingredient', f, :ingredients
+
+  .field
+    = f.text_area :cooking_steps, placeholder: 'Steps'
+
+  .field
+    = f.text_field :prep_time, placeholder: 'Preparation Time (in minutes)'
+
+  .field
+    = f.text_field :cooking_time, placeholder: 'Cooking Time (in minutes)'
+
+  .actions
+    = f.submit 'Save Recipe'
+
+
+    / .ingredients-form
+    /   h3 Ingredients
+    /   #ingredients
+    /     = f.fields_for :ingredients do |builder|
+    /       = render partial: 'ingredient_form', locals: { f: builder }
+    /     = link_to_add_fields 'Add an Ingredient', f, :ingredients

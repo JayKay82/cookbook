@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   end
   root to: 'welcome#index'
 
-  resources :recipes, only: [:show]
+  resources :recipes, only: [:show,:new,:create, :edit, :update] do
+    resources :ingredients, only: [:create, :new]
+  end
 end

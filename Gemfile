@@ -14,12 +14,16 @@ gem 'font-awesome-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'react-rails', '~> 1.3.0'
 
 # Authentication and security
 gem 'devise'
 gem 'figaro', '1.0'
+
+# Form objects
+gem 'reform'
 
 # Miscelaneous
 gem 'turbolinks'

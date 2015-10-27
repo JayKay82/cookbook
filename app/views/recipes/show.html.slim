@@ -1,12 +1,13 @@
 section
   .full-recipe
-    h2= recipe.title
+    = link_to 'edit', edit_recipe_path(@recipe)
+    h2= @recipe.title
 
     time
-      p Prep: #{humanize(recipe.prep_time)} - Cooking: #{humanize(recipe.cooking_time)}
+      p Prep: #{humanize(@recipe.prep_time)} - Cooking: #{humanize(@recipe.cooking_time)}
 
     #description
-      p= recipe.description
+      p= @recipe.description
 
     #ingredients
       h3 Ingredients
@@ -15,8 +16,8 @@ section
           th Qty
           th Name
           th Prep
-        = render ingredients 
+        = render @ingredients
 
     #steps
       h3 Cooking Steps
-      p= recipe.cooking_steps
+      p= @recipe.cooking_steps

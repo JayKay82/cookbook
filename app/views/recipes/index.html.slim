@@ -1,4 +1,4 @@
 section
   h2 Recent Recipes
-
-  = render recent_recipes
+  = link_to 'New Recipe', new_recipe_path
+  = render @recent_recipes
