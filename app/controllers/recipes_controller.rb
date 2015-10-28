@@ -1,21 +1,19 @@
 class RecipesController < ApplicationController
   def index
-    @recent_recipes ||= Recipe.recent
   end
 
   def show
-    @recipe ||= Recipe.find(params[:id])
-    @ingredients = @recipe.ingredients.all
   end
 
   def new
-    @recipe = current_user.recipes.build
-    @recipe.ingredients.build
+    @recipe_form = RecipeForm.new(current_user.recipes.build(ingredients: []))
   end
 
   def create
-    @recipe = current_user.recipes.build(recipe_params)
-    if @recipe.save
+    # raise recipe_params
+    @recipe_form = RecipeForm.new(current_user.recipes.build(recipe_params))
+    if @recipe_form.validate(params[:recipe])
+      @recipe_form.save
       redirect_to root_path, notice: 'Great! Recipe was successfully added.'
     else
       render :new, error: 'Unable to create recipe.'
@@ -23,13 +21,14 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe_form = RecipeForm.new(Recipe.find(params[:id]))
   end
 
   def  update
-    @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
-      redirect_to @recipe, notice: 'Successfully changed recipe.'
+    @recipe_form = RecipeForm.new(Recipe.find(params[:id]))
+    if @recipe_form.validate(recipe_params)
+      @recipe_form.save
+      redirect_to recipe, notice: 'Successfully changed recipe.'
     else
       render :edit, error: 'Unable to update recipe.'
     end
@@ -40,10 +39,23 @@ class RecipesController < ApplicationController
 
   private
 
+  def recent_recipes
+    @recent_recipes ||= Recipe.recent
+  end
+
+  def recipe
+    @recipe ||= Recipe.find(params[:id])
+  end
+
+  def ingredients
+    @ingredients = recipe.ingredients.all
+  end
+
   def recipe_params
     params.require(:recipe).permit(:title, :description, :cooking_steps, :prep_time, :cooking_time, ingredients_attributes: [:id, :quantity, :name, :prep_method, :_destroy])
   end
 
+  helper_method :recent_recipes, :recipe, :ingredients
 end
 
 # new
