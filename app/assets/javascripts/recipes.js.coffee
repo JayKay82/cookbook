@@ -3,20 +3,15 @@
 # # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+  # Sets '_destroy' 10 '1' to mark the nested item for destruction
   $('form').on 'click', '.remove-fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')
     $(this).closest('fieldset').hide()
     event.preventDefault()
 
+  # Gives the new nested item formfield its own unique id
   $('form').on 'click', '.add-fields', (event) ->
     time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp,time))
     event.preventDefault()
-
-# jQuery ->
-#   $('form').on 'click', '.add_fields', (event) ->
-#     time = new Date().getTime()
-#     regexp = new RegExp($(this).data('id'), 'g')
-#     $(this).before($(this).data('fields').replace(regexp,time))
-#     event.preventDefault()
