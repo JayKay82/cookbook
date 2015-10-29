@@ -9,6 +9,11 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/webkit/matchers'
 Capybara.javascript_driver = :webkit
+
+Capybara::Webkit.configure do |config|
+  config.allow_url("fonts.googleapis.com")
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -37,14 +42,28 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
-  # config.before(:each) do
-  #   DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
-  #   DatabaseCleaner.start
-  # end
+  config.use_transactional_fixtures = false
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
 
   config.include(Capybara::Webkit::RspecMatchers, :type => :feature)
 

@@ -1,6 +1,6 @@
 fieldset
-  = f.text_field :quantity, placeholder: 'Qty'
-  = f.text_field :name, placeholder: 'Name'
-  = f.text_field :prep_method, placeholder: 'Prep.'
+  = f.text_field :quantity, placeholder: 'Qty', id: 'ingredient_qty'
+  = f.text_field :name, placeholder: 'Name', id: 'ingredient_name'
+  = f.text_field :prep_method, placeholder: 'Prep.', id: 'ingredient_prep'
   = f.hidden_field :_destroy
   = link_to 'remove', '#', class: 'remove-fields'

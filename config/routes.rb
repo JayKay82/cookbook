@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   # Recipe routes
-  resources :recipes, only: [:show,:new,:create, :edit, :update] do
+  resources :recipes do
     resources :ingredients, only: [:create, :new]
   end
 end

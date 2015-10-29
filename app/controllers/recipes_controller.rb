@@ -54,6 +54,11 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    if recipe.destroy
+      redirect_to root_path, notice: 'The recipe was successfully deleted.'
+    else
+      redirect_to :back, error: 'Unable to delete recipe.'
+    end
   end
 
   private

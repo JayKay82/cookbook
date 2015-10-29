@@ -3,6 +3,7 @@ section
     h2
       = recipe.title
       = link_to 'edit', edit_recipe_path(recipe)
+      = link_to '| delete', recipe, method: :delete
 
     time
       p Prep: #{humanize(recipe.prep_time)} - Cooking: #{humanize(recipe.cooking_time)}
