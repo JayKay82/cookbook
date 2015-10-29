@@ -12,8 +12,13 @@ class RecipesController < ApplicationController
 
   def create
     # Gets rid of any ingredients added to the new recipe form but then later
-    # removed from the form again.
-    clean_params = ParamsSanitizer.sanitize_destroyed(recipe_params)
+    # removed from the form again. If a recipe doesn't have ingredients then
+    # the normal params get passed in.
+    if params.include?('ingredients_attributes')
+      clean_params = ParamsSanitizer.sanitize_destroyed(recipe_params)
+    else
+      clean_params = recipe_params
+    end
 
     # Instantiates a new Recipeform with only the wanted ingredients
     @recipe_form = RecipeForm.new(current_user.recipes.build(clean_params))
@@ -30,7 +35,12 @@ class RecipesController < ApplicationController
 
   def  update
     # Cleans up the params for validations
-    clean_params = ParamsSanitizer.sanitize_destroyed(recipe_params)
+    if params.include?('ingredients_attributes')
+      clean_params = ParamsSanitizer.sanitize_destroyed(recipe_params)
+    else
+      clean_params = recipe_params
+    end
+
     if recipe_form.validate(clean_params)
       # Manually updates recipes because I still haven't figured out how to
       # specifically target individual ingredients in @recipe_form to be

@@ -1,5 +1,11 @@
 / = form_for recipe do |f|
 = form_for recipe_form do |f|
+  - if recipe_form.errors.any?
+    #form-errors
+      h3 Errors!
+      ul
+        - recipe_form.errors.full_messages.each do |msg|
+          li = msg
   .field
     = f.text_field :title, placeholder: 'Title'
 
