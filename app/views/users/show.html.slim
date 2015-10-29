@@ -1,0 +1,7 @@
+section
+  - if current_user
+    h2 My Recipes
+  - else
+    h2 = "#{user.name} Recipes"
+
+  = render recipes
