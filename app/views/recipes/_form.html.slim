@@ -6,9 +6,11 @@
   .field
     = f.text_area :description, placeholder: 'Description'
 
-  = f.fields_for :ingredients do |builder|
-    = render 'ingredient_fields', f: builder
-  = link_to_add_fields 'Add ingredient', f, :ingredients
+  #ingredients-form
+    h3 Ingredients:
+    = f.fields_for :ingredients do |builder|
+      = render 'ingredient_fields', f: builder
+    = link_to_add_fields 'Add ingredient', f, :ingredients
 
   .field
     = f.text_area :cooking_steps, placeholder: 'Steps'
