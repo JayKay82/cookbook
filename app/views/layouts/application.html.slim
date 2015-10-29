@@ -23,13 +23,21 @@ html
     header
       i= link_to '', root_path, class: 'fa fa-leaf'
       h1 Recipe
+
       - if current_user
         = link_to 'Sign out', destroy_user_session_path, method: :delete,
         id: 'sign-out'
+
       - unless current_user
         nav
           li= link_to 'Sign in', new_user_session_path
           li= link_to 'Sign up', '#signup-anchor'
+
+      - if current_user
+        nav#site-navigation
+          li= link_to 'New Recipe', new_recipe_path
+          li= link_to 'My Recipes', current_user
+          li= link_to 'Subscriptions', '#'
 
     = yield
 
