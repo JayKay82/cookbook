@@ -1,7 +1,7 @@
 section
-  - if current_user
+  - if current_user.id == params[:id].to_i
     h2 My Recipes
+    = render all_recipes
   - else
-    h2 = "#{user.name} Recipes"
-
-  = render recipes
+    h2 = "#{user.name}'s Recipes"
+    = render restricted_recipes

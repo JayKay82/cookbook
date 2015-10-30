@@ -10,5 +10,6 @@ class Recipe < ActiveRecord::Base
   # method is call on :ingredients with allow_destroy set to true.
   accepts_nested_attributes_for :ingredients, allow_destroy: true
 
-  scope :recent, ->{ Recipe.all.order('created_at DESC').limit(5) }
+  scope :recent_restricted, ->{ where(private: false).order('created_at DESC').limit(5) }
+  scope :recent_all, ->{ all.order('created_at DESC').limit(5) }
 end

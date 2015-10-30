@@ -20,6 +20,7 @@ gem 'react-rails', '~> 1.3.0'
 
 # Authentication and security
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 gem 'figaro', '1.0'
 
 # Form objects

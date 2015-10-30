@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
+
   def index
   end
 
@@ -64,7 +66,7 @@ class RecipesController < ApplicationController
   private
 
   def recent_recipes
-    @recent_recipes ||= Recipe.recent
+    @recent_recipes ||= Recipe.recent_restricted
   end
 
   def recipe

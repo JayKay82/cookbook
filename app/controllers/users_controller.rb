@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
+
   def show
   end
 
@@ -8,9 +10,13 @@ class UsersController < ApplicationController
     @user ||= User.find(params[:id])
   end
 
-  def recipes
-    @recipes ||= user.recipes.recent
+  def all_recipes
+    @recipes ||= user.recipes.recent_all
   end
 
-  helper_method :user, :recipes
+  def restricted_recipes
+    @recipes ||= user.recipes.recent_restricted
+  end
+
+  helper_method :user, :all_recipes, :restricted_recipes
 end
