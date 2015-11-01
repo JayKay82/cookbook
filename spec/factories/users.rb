@@ -9,4 +9,8 @@ FactoryGirl.define do
   trait :confirmed do
     confirmed_at { Time.now }
   end
+
+  trait :admin do
+    role 'admin'
+  end
 end
